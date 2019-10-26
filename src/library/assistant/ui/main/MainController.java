@@ -17,6 +17,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.HostServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,14 +30,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import library.assistant.database.DatabaseHandler;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * FXML Controller class
@@ -399,6 +401,14 @@ public class MainController implements Initializable {
         stage.setFullScreen(!stage.isFullScreen());
     }
 
+    @FXML
+    private void handleMenuAbout(ActionEvent event) throws URISyntaxException, IOException {
+        Desktop d = Desktop.getDesktop();
+        d.browse(new URI("https://www.linkedin.com/in/shrikant-satpathy/"));
+        
+    }
+
+    
 
 }
 
