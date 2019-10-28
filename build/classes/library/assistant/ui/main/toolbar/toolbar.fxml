@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="150.0" stylesheets="@../../../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.assistant.ui.main.toolbar.ToolbarController">
+   <children>
+      <JFXButton mnemonicParsing="false" onAction="#loadAddMember" prefHeight="127.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-border-radius: 0;" styleClass="toolbar-button" text="ADD MEMBER">
+         <graphic>
+            <FontAwesomeIconView glyphName="USER" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton mnemonicParsing="false" onAction="#loadAddBook" prefHeight="117.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-border-radius: 0;" styleClass="toolbar-button" text="ADD BOOK">
+         <graphic>
+            <FontAwesomeIconView glyphName="BOOK" size="25.0" style="-fx-background-color: #2A2E37;" />
+         </graphic>
+      </JFXButton>
+      <JFXButton mnemonicParsing="false" onAction="#loadMemberTable" prefHeight="111.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-border-radius: 0;" styleClass="toolbar-button" text="MEMBER LIST">
+         <graphic>
+            <FontAwesomeIconView glyphName="TABLE" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton mnemonicParsing="false" onAction="#loadBookTable" prefHeight="111.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-border-radius: 0;" styleClass="toolbar-button" text="BOOK LIST">
+         <graphic>
+            <FontAwesomeIconView glyphName="TABLE" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton mnemonicParsing="false" onAction="#loadSettings" prefHeight="109.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-border-radius: 0;" styleClass="toolbar-button" text="SETTING">
+         <graphic>
+            <FontAwesomeIconView glyphName="COG" size="25" />
+         </graphic>
+      </JFXButton>
+   </children>
+</VBox>

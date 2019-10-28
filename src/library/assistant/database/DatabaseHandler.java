@@ -45,8 +45,9 @@ public final class DatabaseHandler {
 
     void createConnection() {
         try {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
-            conn = DriverManager.getConnection(DB_URL);
+//            Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+//            conn = DriverManager.getConnection(DB_URL);
+              conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "root");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Cant load database", "Database Error", JOptionPane.ERROR_MESSAGE);
@@ -66,8 +67,16 @@ public final class DatabaseHandler {
             
 
             if (tables.next()) {
+                System.out.println("CREATE TABLE " + TABLE_NAME + "("
+                        + "	id varchar(200) primary key,\n"
+                        + "	title varchar(200),\n"
+                        + "	author varchar(200),\n"
+                        + "	publisher varchar(100),\n"
+                        + "	isAvail boolean default true"
+                        + " )");
                 System.out.println("Table " + TABLE_NAME + "already exists. Ready for go!");
             } else {
+                
                 stmt.execute("CREATE TABLE " + TABLE_NAME + "("
                         + "	id varchar(200) primary key,\n"
                         + "	title varchar(200),\n"
@@ -83,7 +92,7 @@ public final class DatabaseHandler {
     }
     
     void setupMemberTable() {
-        String TABLE_NAME = "MEMBER";
+        String TABLE_NAME = "STUDENT";
         try {
             stmt = conn.createStatement();
 
@@ -93,12 +102,22 @@ public final class DatabaseHandler {
             if (tables.next()) {
                 System.out.println("Table " + TABLE_NAME + "already exists. Ready for go!");
             } else {
-                stmt.execute("CREATE TABLE " + TABLE_NAME + "("
+                System.out.println("CREATE TABLE " + TABLE_NAME + "("
                         + "	id varchar(200) primary key,\n"
                         + "	name varchar(200),\n"
                         + "	mobile varchar(20),\n"
-                        + "	email varchar(100)\n"
+                        + "	email varchar(100),\n"
+                        + "     Primary Key(id),\n"
                         + " )");
+                
+                stmt.execute("CREATE TABLE " + TABLE_NAME + "("
+                        + "	id varchar(200),\n"
+                        + "	name varchar(200),\n"
+                        + "	mobile varchar(20),\n"
+                        + "	email varchar(100),\n"
+                        + "     Primary Key(id)\n"
+                        + " )");
+                
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage() + " --- setupDatabase");
@@ -151,7 +170,7 @@ public final class DatabaseHandler {
                         + "	issueTime timestamp default CURRENT_TIMESTAMP,\n"
                         + "	renew_count integer default 0,\n"
                         + "	FOREIGN KEY (bookID) REFERENCES BOOK(id),\n"
-                        + "	FOREIGN KEY (memberID) REFERENCES MEMBER(id)"
+                        + "	FOREIGN KEY (memberID) REFERENCES STUDENT(id)"
                         + " )");
             }
         } catch (SQLException e) {
@@ -211,7 +230,7 @@ public final class DatabaseHandler {
     public boolean updateMember(MemberListController.Member member)
     {
         try {
-            String update = "UPDATE MEMBER SET NAME=?, EMAIL=?, MOBILE=? WHERE ID=?";
+            String update = "UPDATE STUDENT SET NAME=?, EMAIL=?, MOBILE=? WHERE ID=?";
             PreparedStatement stmt = conn.prepareStatement(update);
             stmt.setString(1, member.getName());
             stmt.setString(2, member.getEmail());

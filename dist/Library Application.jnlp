@@ -11,8 +11,13 @@
     <jar href="lib/apache-commons-codec-1.4.jar" size="62704" download="eager" />
     <jar href="lib/derby.jar" size="3230946" download="eager" />
     <jar href="lib/derbyclient.jar" size="587986" download="eager" />
+    <jar href="lib/fontawesomefx-commons-8.15.jar" size="20957" download="eager" />
+    <jar href="lib/fontawesomefx-commons-9.1.2.jar" size="24064" download="eager" />
+    <jar href="lib/fontawesomefx-fontawesome-4.7.0-5.jar" size="136891" download="eager" />
+    <jar href="lib/fontawesomefx-fontawesome-4.7.0-9.1.2.jar" size="137226" download="eager" />
     <jar href="lib/gson-2.2.2.jar" size="189285" download="eager" />
     <jar href="lib/jfoenix-8.0.8.jar" size="2708772" download="eager" />
+    <jar href="lib/mysql-connector-java-8.0.17.jar" size="2321813" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Library Application" >
     <param name="requiredFXVersion" value="8.0+"/>

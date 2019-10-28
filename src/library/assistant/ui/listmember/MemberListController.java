@@ -68,7 +68,7 @@ public class MemberListController implements Initializable {
         DatabaseHandler handler = DatabaseHandler.getInstance();
         list.clear();
 
-        String qu = "SELECT * FROM MEMBER";
+        String qu = "SELECT * FROM STUDENT";
         ResultSet rs = handler.execQuery(qu);
         try {
             while (rs.next()) {

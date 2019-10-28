@@ -96,7 +96,7 @@ public class MemberAddController implements Initializable {
 //                        + "	mobile varchar(20),\n"
 //                        + "	email varchar(100)\n"
 //                        + " )");
-        String st = "INSERT INTO MEMBER VALUES ("
+        String st = "INSERT INTO STUDENT VALUES ("
                 + "'" + mID + "',"
                 + "'" + mName + "',"
                 + "'" + mMobile + "',"
@@ -119,7 +119,7 @@ public class MemberAddController implements Initializable {
     }
 
     private void checkData() {
-        String qu = "SELECT name FROM MEMBER";
+        String qu = "SELECT name FROM STUDENT";
         ResultSet rs = handler.execQuery(qu);
         try {
             while(rs.next()){
